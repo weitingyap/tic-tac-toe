@@ -35,7 +35,9 @@ const game = (function(){
         if (checkWin()){                                    // in case of win, update score and reset board
             players[currPlayer-1].updateScore();
             initBoard();
-        };
+        } else if (checkDraw()){                            // in case of draw, reset board
+            initBoard;
+        }
         [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
     };
 
