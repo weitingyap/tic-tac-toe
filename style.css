@@ -11,3 +11,18 @@
     height: 100vh;
     background-color: var(--bg-color);
 }
+
+#player-scores{
+    height: 20vh;
+    box-sizing: border-box;
+}
+
+#game-board{
+    height: 60vh;
+    box-sizing: border-box;
+}
+
+#game-btns{
+    height: 20vh;
+    box-sizing: border-box;
+}
