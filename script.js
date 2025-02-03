@@ -1,17 +1,16 @@
+// Player factory
+function createPlayer(name, playerNum){
+    let score = 0;
+
+    const updateScore = () => {score++};
+    const getScore = () => score;
+
+    return {name, playerNum, getScore, updateScore};
+}
+
 const game = (function(){
-
-    // create players
-    function createPlayer(name, playerNum){
-        let score = 0;
-    
-        const updateScore = () => {score++};
-        const getScore = () => score;
-    
-        return {name, playerNum, getScore, updateScore};
-    }
-    
+    // create player instances
     const players = [createPlayer("One", 1), createPlayer("Two", 2)];
-
 
     // create and initialize board
     let board;
