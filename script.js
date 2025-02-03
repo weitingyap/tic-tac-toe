@@ -15,8 +15,12 @@ const game = (function(){
         [0, 0, 0]
     ];
 
-    const placeMove = function(x, y, playerNum){
-        board[x][y] = playerNum;
+    // turn counter which has value set to playerNum of next player
+    let nextPlayerNum = 1;
+
+    const placeMove = function(x, y){
+        board[x][y] = nextPlayerNum;                 // update board
+        nextPlayerNum = nextPlayerNum === 1 ? 2 : 1; // update next player
     };
 
     playerOne = createPlayer("One", 1);
