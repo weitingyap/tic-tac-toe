@@ -1,12 +1,15 @@
-function createPlayer(name, playerNum){
-    let score = 0;
-
-    const updateScore = () => {score++};
-
-    return {name, playerNum, score, updateScore};
-}
-
 const game = (function(){
+
+    // create players
+    function createPlayer(name, playerNum){
+        let score = 0;
+    
+        const updateScore = () => {score++};
+    
+        return {name, playerNum, score, updateScore};
+    }
+    
+    const players = [createPlayer("One", 1), createPlayer("Two", 2)];
 
     // 0 means empty, 1 is player 1, 2 is player 2
     let board = [
@@ -52,8 +55,6 @@ const game = (function(){
 
         return (checkHorizontal() || checkVertical() || checkDiagonal());
     };
-
-    const players = [createPlayer("One", 1), createPlayer("Two", 2)];
 
     return {board, placeMove, checkWin};
 })();
