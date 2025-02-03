@@ -33,8 +33,9 @@ const game = (function(){
 
     const placeMove = function(x, y){
         board[x][y] = currPlayer;                           // update board
-        if (checkWin()){
+        if (checkWin()){                                    // in case of win, update score and reset board
             players[currPlayer-1].updateScore();
+            initBoard();
         };
         [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
     };
