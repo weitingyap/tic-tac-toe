@@ -16,11 +16,11 @@ const game = (function(){
     ];
 
     // turn counter which has value set to playerNum of next player
-    let nextPlayerNum = 1;
+    let [currPlayer, nextPlayer] = [1, 2];
 
     const placeMove = function(x, y){
-        board[x][y] = nextPlayerNum;                 // update board
-        nextPlayerNum = nextPlayerNum === 1 ? 2 : 1; // update next player
+        board[x][y] = currPlayer;                           // update board
+        [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
     };
 
     const checkWin = function(){
@@ -28,7 +28,7 @@ const game = (function(){
         function checkHorizontal(){
             return (board.some((row)=>{
                 return row.every((cell)=>{
-                    return cell === nextPlayerNum});
+                    return cell === currPlayer});
             }));
         }
 
@@ -36,7 +36,7 @@ const game = (function(){
             for (let x = 0; x < 3; x++){
                 let colMoveCnt = 0;
                 for (let y = 0; y < 3; y++){
-                    if (board[x][y] === nextPlayerNum) colMoveCnt++;
+                    if (board[x][y] === currPlayer) colMoveCnt++;
                 }
                 if (colMoveCnt === 3) return true;
             }
@@ -45,8 +45,8 @@ const game = (function(){
 
         function checkDiagonal(){
             return (
-                (board[0][0] === nextPlayerNum && board[1][1] === nextPlayerNum && board[2][2] === nextPlayerNum) ||
-                (board[0][2] === nextPlayerNum && board[1][1] === nextPlayerNum && board[2][0] === nextPlayerNum)
+                (board[0][0] === currPlayer && board[1][1] === currPlayer && board[2][2] === currPlayer) ||
+                (board[0][2] === currPlayer && board[1][1] === currPlayer && board[2][0] === currPlayer)
             );
         }
 
