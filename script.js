@@ -53,8 +53,7 @@ const game = (function(){
         return (checkHorizontal() || checkVertical() || checkDiagonal());
     };
 
-    playerOne = createPlayer("One", 1);
-    playerTwo = createPlayer("Two", 2);
+    const players = [createPlayer("One", 1), createPlayer("Two", 2)];
 
     return {board, placeMove, checkWin};
 })();
