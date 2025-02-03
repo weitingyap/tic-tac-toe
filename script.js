@@ -40,6 +40,8 @@ const game = (function(){
         [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
     };
 
+
+    // check for wins
     const checkWin = function(){
         
         function checkHorizontal(){
