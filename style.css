@@ -17,9 +17,17 @@
     background-color: var(--bg-color);
 }
 
-#player-scores{
+#player-scores-banner{
+    display: flex;
+    flex-direction: column;
     height: 20vh;
     box-sizing: border-box;
+}
+
+#player-names, #player-scores{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
 }
 
 #game-board{
