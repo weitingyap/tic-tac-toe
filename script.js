@@ -71,5 +71,11 @@ const game = (function(){
         return (checkHorizontal() || checkVertical() || checkDiagonal());
     };
 
-    return {board, players, placeMove, checkWin};
+    // check if the board is full - if so, there is a draw; reset the board
+
+    const checkDraw = function(){
+        return !board.some( (row) => row.some((cell)=>cell===0) );
+    }
+
+    return {board, players, placeMove, checkWin, checkDraw};
 })();
