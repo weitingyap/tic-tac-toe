@@ -1,3 +1,13 @@
-#hello-world{
-    color: red;
+:root {
+    --bg-color: #A99F96;
+    --primary-color: #945D5E;
+    --secondary-color: #71677C; 
+    --font-color: #37123C;
+    --accent-color: #DDA77B;
+}
+
+#main-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
 }
