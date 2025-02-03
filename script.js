@@ -5,8 +5,9 @@ const game = (function(){
         let score = 0;
     
         const updateScore = () => {score++};
+        const getScore = () => score;
     
-        return {name, playerNum, score, updateScore};
+        return {name, playerNum, getScore, updateScore};
     }
     
     const players = [createPlayer("One", 1), createPlayer("Two", 2)];
