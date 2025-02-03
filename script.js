@@ -79,5 +79,5 @@ const game = (function(){
         return !board.some( (row) => row.some((cell)=>cell===0) );
     }
 
-    return {board, players, placeMove, checkWin, checkDraw};
+    return {board, players};
 })();
