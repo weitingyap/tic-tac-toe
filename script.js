@@ -1,9 +1,10 @@
 function createPlayer(name){
-    const score = 0;
-    return {name, score};
+    let score = 0;
+
+    const updateScore = () => {score++};
+
+    return {name, score, updateScore};
 }
 
 playerOne = createPlayer("One");
 playerTwo = createPlayer("Two");
-
-console.log(playerOne);
