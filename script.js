@@ -23,6 +23,9 @@ const game = (function(){
 
     const placeMove = function(x, y){
         board[x][y] = currPlayer;                           // update board
+        if (checkWin()){
+            players[currPlayer-1].updateScore();
+        };
         [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
     };
 
@@ -56,5 +59,5 @@ const game = (function(){
         return (checkHorizontal() || checkVertical() || checkDiagonal());
     };
 
-    return {board, placeMove, checkWin};
+    return {board, players, placeMove, checkWin};
 })();
