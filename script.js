@@ -8,6 +8,7 @@ function createPlayer(name, playerNum){
     return {name, playerNum, getScore, updateScore};
 }
 
+// IIFE game module
 const game = (function(){
     // create player instances
     const players = [createPlayer("One", 1), createPlayer("Two", 2)];
@@ -82,6 +83,7 @@ const game = (function(){
     return {board, players};
 })();
 
+// IIFE display module
 const displayController = (function(){
     const initBoard = function(){
         const board = document.createElement("div");
