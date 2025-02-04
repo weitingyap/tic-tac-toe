@@ -43,7 +43,7 @@ const game = (function(){
             initBoard();
             displayController.resetBoard();
         } else if (checkDraw()){                            // in case of draw, reset board
-            initBoard;
+            initBoard();
             displayController.resetBoard();
         }
         [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
