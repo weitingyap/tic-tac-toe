@@ -14,7 +14,7 @@ const game = (function(){
     const players = [createPlayer("One", 1), createPlayer("Two", 2)];
 
     // create and initialize board
-    const board;
+    let board;
 
     const initBoard = function(){
         // 0 means empty, 1 is player 1, 2 is player 2
