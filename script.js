@@ -105,7 +105,6 @@ const displayController = (function(){
 
         for (let x = 0; x < 3; x++){
             const newRow = row.cloneNode();
-            console.log(`newrow is ${row} cloned into ${newRow}`);
             for (let y = 0; y < 3; y++){
                 const newCell = cell.cloneNode(true);
                 newCell.id = `cell-${x}-${y}`; // track each cell's coordinates
@@ -143,7 +142,6 @@ const displayController = (function(){
 
                 const [_, x, y] = e.target.id.split('-');
                 game.placeMove(x,y);
-                console.log(`placed move at ${{x,y}}, next player ${game.getCurrPlayer()}`);
             }
         }
     });
@@ -156,9 +154,7 @@ const displayController = (function(){
 
     // event listener for new game - clears board
     newGameBtn = document.querySelector("#new-game-btn");
-    console.log(newGameBtn);
     newGameBtn.addEventListener('click', ()=>{
-        console.log('clicked!');
         game.initBoard();
         resetBoard();
     });
