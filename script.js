@@ -128,17 +128,23 @@ const displayController = (function(){
     // function that listens for a click and places a move
     boardContainer.addEventListener('click', function placeMove(e){
         if (e.target.classList.contains('cell')){
-            switch (game.getCurrPlayer()){
-                case 1:
-                    e.target.classList.add('player-one-move');
-                    break;
-                case 2:
-                    e.target.classList.add('player-two-move');
-                    break;
+            // if empty, do not place move
+            if (!e.target.classList.contains('player-one-move') && 
+                !e.target.classList.contains('player-two-move')) {
+
+                switch (game.getCurrPlayer()){
+                    case 1:
+                        e.target.classList.add('player-one-move');
+                        break;
+                    case 2:
+                        e.target.classList.add('player-two-move');
+                        break;
+                }
+
+                const [_, x, y] = e.target.id.split('-');
+                game.placeMove(x,y);
+                console.log(`placed move at ${{x,y}}, next player ${game.getCurrPlayer()}`);
             }
-            const [_, x, y] = e.target.id.split('-');
-            game.placeMove(x,y);
-            console.log(`placed move at ${{x,y}}, next player ${game.getCurrPlayer()}`);
         }
     });
 

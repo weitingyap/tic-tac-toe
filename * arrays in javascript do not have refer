@@ -1,0 +1,12 @@
+* arrays in javascript do not have reference equivalence; comparison operators do not compare values automatically (like in python); instead they compare references. I ran into difficulty checking for wins, but ultimately resolved this by using .some and .every methods to compare values.
+* 
+
+
+edge cases 
+- player tries to click on the same cell that isn't empty
+- draw: clears the board
+
+
+tickets 
+- change players from array to object with keys 1 and 2
+- change board to const 
