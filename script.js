@@ -81,3 +81,31 @@ const game = (function(){
 
     return {board, players};
 })();
+
+const displayController = (function(){
+    const initBoard = function(){
+        const board = document.createElement("div");
+        board.classList.add("board");
+        const row = document.createElement("div");
+        row.classList.add("row");
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+
+        for (let x = 0; x < 3; x++){
+            const newRow = row.cloneNode();
+            console.log(`newrow is ${row} cloned into ${newRow}`);
+            for (let y = 0; y < 3; y++){
+                const newCell = cell.cloneNode(true);
+                newRow.appendChild(newCell);
+            }
+            board.appendChild(newRow);
+        }
+
+        boardContainer = document.querySelector("#game-board-container");
+        boardContainer.appendChild(board);
+    };
+
+    return {initBoard};
+}(document));
+
+displayController.initBoard();

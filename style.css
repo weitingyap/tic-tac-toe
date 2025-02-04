@@ -40,10 +40,35 @@
 
 #game-board-container{
     height: 60vh;
+    width: 60vh;
     box-sizing: border-box;
 }
 
 #game-btns-container{
     height: 20vh;
     box-sizing: border-box;
+}
+
+.board{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--accent-color);
+}
+
+.row {
+    width: 100%;
+    height: calc(100%/3);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.cell{
+    width: calc(100%/3);
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid var(--primary-color);
 }
