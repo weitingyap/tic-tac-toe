@@ -19,7 +19,7 @@
     color: var(--font-color);
 }
 
-#player-scores-banner{
+#player-scores-container{
     display: flex;
     flex-direction: column;
     height: 20vh;
@@ -38,12 +38,12 @@
     
 }
 
-#game-board{
+#game-board-container{
     height: 60vh;
     box-sizing: border-box;
 }
 
-#game-btns{
+#game-btns-container{
     height: 20vh;
     box-sizing: border-box;
 }
