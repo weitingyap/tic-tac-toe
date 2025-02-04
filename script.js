@@ -40,8 +40,10 @@ const game = (function(){
         if (checkWin()){                                    // in case of win, update score and reset board
             players[currPlayer-1].updateScore();
             initBoard();
+            displayController.resetBoard();
         } else if (checkDraw()){                            // in case of draw, reset board
             initBoard;
+            displayController.resetBoard();
         }
         [currPlayer, nextPlayer] = [nextPlayer, currPlayer] // update next player
     };
@@ -114,6 +116,14 @@ const displayController = (function(){
         boardContainer.appendChild(board);
     };
 
+    // clears all moves made
+    const resetBoard = function(){
+        cells = document.querySelectorAll(".cell");
+        cells.forEach(
+            (cell)=>{cell.classList.remove("player-one-move", "player-two-move")}
+        );
+    };
+
     // function that listens for a click and places a move
     boardContainer.addEventListener('click', function placeMove(e){
         if (e.target.classList.contains('cell')){
@@ -131,7 +141,7 @@ const displayController = (function(){
         }
     });
 
-    return {initBoard};
+    return {initBoard, resetBoard};
 }(document));
 
 displayController.initBoard();
