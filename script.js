@@ -87,7 +87,7 @@ const game = (function(){
         return !board.some( (row) => row.some((cell)=>cell===0) );
     }
 
-    return {board, players, placeMove, getCurrPlayer};
+    return {board, players, initBoard, placeMove, getCurrPlayer};
 })();
 
 // IIFE display module
@@ -154,6 +154,14 @@ const displayController = (function(){
         playerScores[playerNum-1].innerText = score;
     };
 
+    // event listener for new game - clears board
+    newGameBtn = document.querySelector("#new-game-btn");
+    console.log(newGameBtn);
+    newGameBtn.addEventListener('click', ()=>{
+        console.log('clicked!');
+        game.initBoard();
+        resetBoard();
+    });
 
     return {initBoard, resetBoard, updatePlayerScore};
 }(document));
