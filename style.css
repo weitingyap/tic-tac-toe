@@ -12,17 +12,17 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    background-color: var(--bg-color);
+    padding: 60px;
+    box-sizing: border-box;
     color: var(--font-color);
 }
 
 #player-scores-container{
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: auto;
     box-sizing: border-box;
 }
 
@@ -41,11 +41,14 @@
 #game-board-container{
     height: 60vh;
     width: 60vh;
+    margin: 36px;;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-btns-container{
-    height: 20vh;
     box-sizing: border-box;
 }
 
@@ -94,6 +97,9 @@
     font-weight: bold;
     padding: 12px;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #new-game-btn:active{
