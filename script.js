@@ -85,6 +85,9 @@ const game = (function(){
 
 // IIFE display module
 const displayController = (function(){
+
+    const boardContainer = document.querySelector("#game-board-container");
+
     const initBoard = function(){
         const board = document.createElement("div");
         board.classList.add("board");
@@ -103,9 +106,10 @@ const displayController = (function(){
             board.appendChild(newRow);
         }
 
-        boardContainer = document.querySelector("#game-board-container");
         boardContainer.appendChild(board);
     };
+
+
 
     return {initBoard};
 }(document));
