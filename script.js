@@ -80,7 +80,7 @@ const game = (function(){
         return !board.some( (row) => row.some((cell)=>cell===0) );
     }
 
-    return {board, players};
+    return {board, players, currPlayer};
 })();
 
 // IIFE display module
@@ -109,7 +109,19 @@ const displayController = (function(){
         boardContainer.appendChild(board);
     };
 
-
+    // function that listens for a click and places a move
+    boardContainer.addEventListener('click', function placeMove(e){
+        if (e.target.classList.contains('cell')){
+            switch (game.currPlayer){
+                case 1:
+                    e.target.classList.add('player-one-move');
+                    break;
+                case 2:
+                    e.target.classList.add('player-two-move');
+                    break;
+            }
+        }
+    });
 
     return {initBoard};
 }(document));

@@ -72,3 +72,15 @@
     box-sizing: border-box;
     border: 2px solid var(--primary-color);
 }
+
+.player-one-move{
+    background-image: url(./assets/circle-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.player-two-move{
+    background-image: url(./assets/x-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
