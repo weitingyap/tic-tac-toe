@@ -31,6 +31,10 @@ const game = (function(){
     // turn counter which has value set to playerNum of next player
     let [currPlayer, nextPlayer] = [1, 2];
 
+    const getCurrPlayer = function(){
+        return currPlayer;
+    }
+
     const placeMove = function(x, y){
         board[x][y] = currPlayer;                           // update board
         if (checkWin()){                                    // in case of win, update score and reset board
@@ -80,7 +84,7 @@ const game = (function(){
         return !board.some( (row) => row.some((cell)=>cell===0) );
     }
 
-    return {board, players, currPlayer};
+    return {board, players, placeMove, getCurrPlayer};
 })();
 
 // IIFE display module
@@ -101,6 +105,7 @@ const displayController = (function(){
             console.log(`newrow is ${row} cloned into ${newRow}`);
             for (let y = 0; y < 3; y++){
                 const newCell = cell.cloneNode(true);
+                newCell.id = `cell-${x}-${y}`; // track each cell's coordinates
                 newRow.appendChild(newCell);
             }
             board.appendChild(newRow);
@@ -112,7 +117,7 @@ const displayController = (function(){
     // function that listens for a click and places a move
     boardContainer.addEventListener('click', function placeMove(e){
         if (e.target.classList.contains('cell')){
-            switch (game.currPlayer){
+            switch (game.getCurrPlayer()){
                 case 1:
                     e.target.classList.add('player-one-move');
                     break;
@@ -120,6 +125,9 @@ const displayController = (function(){
                     e.target.classList.add('player-two-move');
                     break;
             }
+            const [_, x, y] = e.target.id.split('-');
+            game.placeMove(x,y);
+            console.log(`placed move at ${{x,y}}, next player ${game.getCurrPlayer()}`);
         }
     });
 
