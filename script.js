@@ -39,6 +39,7 @@ const game = (function(){
         board[x][y] = currPlayer;                           // update board
         if (checkWin()){                                    // in case of win, update score and reset board
             players[currPlayer-1].updateScore();
+            displayController.updatePlayerScore(currPlayer, players[currPlayer-1].getScore());
             initBoard();
             displayController.resetBoard();
         } else if (checkDraw()){                            // in case of draw, reset board
@@ -141,7 +142,14 @@ const displayController = (function(){
         }
     });
 
-    return {initBoard, resetBoard};
+    // function to update player scores
+    const updatePlayerScore = function(playerNum, score){
+        playerScores = [document.querySelector("#player-1-score"), document.querySelector("#player-2-score")];
+        playerScores[playerNum-1].innerText = score;
+    };
+
+
+    return {initBoard, resetBoard, updatePlayerScore};
 }(document));
 
 displayController.initBoard();
